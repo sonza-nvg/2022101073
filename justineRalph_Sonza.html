@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulacan State University - BSIT Students</title>
+    <style>
+ body {
+    font-family: Arial, sans-serif; 
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: auto;
+    
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border: 3px solid black; 
+    width: 280px;
+    background-color: #f9f9f9;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    font-family: Arial, sans-serif; 
+    font-size: 12px; 
+    padding: 3px;
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-left: 10px; 
+    order: 2; 
+}
+
+.card p {
+    margin: 3px 0;
+    text-align: left;
+    font-size: 12px; 
+    order: 1; 
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let xmlData = `
+                <students>
+    <student>
+        <name>Yuji Itadori</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/6/64/YujiP.png/revision/latest/scale-to-width-down/138?cb=20210709235502" alt="Student 1"/>
+        </picture>
+    </student>
+    <student>
+        <name>Megumi Fushiguro</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/5/58/MegumiP.png/revision/latest/scale-to-width-down/138?cb=20200329012008" alt="Student 2"/>
+        </picture>
+    </student>
+    <student>
+        <name>Nobara Kugisaki</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/8/81/NobaraP.png/revision/latest/scale-to-width-down/138?cb=20200415235637" alt="Student 3"/>
+        </picture>
+    </student>
+    <student>
+        <name>Maki Zenin</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/d/dc/MakiP.png/revision/latest?cb=20191022215538" alt="Student 4"/>
+        </picture>
+    </student>
+    <student>
+        <name>Toga Inumaki</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/3/3d/TogeP.png/revision/latest?cb=20191022215544" alt="Student 5"/>
+        </picture>
+    </student>
+    <student>
+        <name>Panda</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/5/50/PandaP.png/revision/latest?cb=20191022215550" alt="Student 6"/>
+        </picture>
+    </student>
+    <student>
+        <name>Sukuna</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/3/3a/SukunaP.png/revision/latest/scale-to-width-down/138?cb=20231029235820" alt="Student 7"/>
+        </picture>
+    </student>
+    <student>
+        <name>Kenjaku</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/4/4f/KenjakuP.png/revision/latest/scale-to-width-down/138?cb=20231029170848" alt="Student 8"/>
+        </picture>
+    </student>
+    <student>
+        <name>Toji Fushiguro</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/e/e4/TojiFushiguroP.png/revision/latest/scale-to-width-down/138?cb=20200728170530" alt="Student 9"/>
+        </picture>
+    </student>
+    <student>
+        <name>Yuta Okkotsu</name>
+        <course>BSIT</course>
+        <year>3AG1</year>
+        <adviser>Sheldon V. Arenas</adviser>
+        <schoolYear>2025-2026</schoolYear>
+        <picture>
+            <img src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/6/65/YutaOkkotsuP_%28Second-Year%29.png/revision/latest/scale-to-width-down/138?cb=20240615015325" alt="Student 10"/>
+        </picture>
+    </student>
+</students>
+
+            `;
+
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(xmlData, "text/xml");
+            let students = xmlDoc.getElementsByTagName("student");
+            let container = document.querySelector(".container");
+            
+            for (let i = 0; i < students.length; i++) {
+                let name = students[i].getElementsByTagName("name")[0].textContent;
+                let course = students[i].getElementsByTagName("course")[0].textContent;
+                let year = students[i].getElementsByTagName("year")[0].textContent;
+                let adviser = students[i].getElementsByTagName("adviser")[0].textContent;
+                let schoolYear = students[i].getElementsByTagName("schoolYear")[0].textContent;
+
+                
+                let pictureElement = students[i].getElementsByTagName("picture")[0].getElementsByTagName("img")[0];
+                let pictureSrc = pictureElement.getAttribute("src");
+
+                let card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <img src="${pictureSrc}" alt="Student Picture">
+                    <div>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Course:</strong> ${course}</p>
+                        <p><strong>Year Level / Section:</strong> ${year}</p>
+                        <p><strong>Adviser:</strong> ${adviser}</p>
+                        <p><strong>School Year:</strong> ${schoolYear}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Bulacan State University</h1>
+    <h2>BSIT Students</h2>
+    <div class="container"></div>
+</body>
+</html>
